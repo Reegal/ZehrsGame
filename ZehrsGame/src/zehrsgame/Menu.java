@@ -193,6 +193,7 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        txtDialogue.setEditable(false);
         txtDialogue.setColumns(20);
         txtDialogue.setLineWrap(true);
         txtDialogue.setRows(5);
