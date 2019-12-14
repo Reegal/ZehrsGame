@@ -9,10 +9,21 @@ import javax.swing.JPanel;
 
 public class Display extends JPanel{
     
+    public String character = "MrZehrs", bgType, faceType;
+    
+    public String getCharacter(){
+        return character;
+    }
+    
+    public void setCharacter(String character){
+        this.character = character;
+    }
+    
+    
     
      private void doDrawing(Graphics g) {    
         Graphics2D g2d = (Graphics2D) g;
-        String character = "", bgType, faceType;
+        
         if (character.equals("Reegal") || character.equals("Jason") || character.equals("Colin") || character.equals("Gordon")) {
             bgType = "Dept";
         } else if (character.equals("Cutten") || character.equals("Andy")) {
