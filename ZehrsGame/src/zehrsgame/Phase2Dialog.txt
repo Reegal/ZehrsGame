@@ -1,28 +1,28 @@
 Andy
 Ask about coworkers
-Riley: "Did you notice something between the coworkers yesterday?"#Andy Dong: "There was some dispute between the seafood and hot deli departments"
+Riley: "Did you notice something between the coworkers yesterday?"#Andy Dong: "There was some dispute between the Seafood and Hot Deli departments."
 Ask about the cooler
-Riley: "Did you see any suspicious activity around the cooler?"#Andy Dong: "There were a lot of people going in and out of the cooler itself"
+Riley: "Did you see any suspicious activity around the cooler?"#Andy Dong: "There were a lot of people going in and out of the cooler itself."
 Ask about the service quality
-Riley: "How was the customer service yesterday?"#Andy Dong: "Nothing out of the ordinary, there were 3 employees instead of the normal 2 working."
+Riley: "How was the customer service yesterday?"#Andy Dong: "Nothing out of the ordinary, but there were 3 employees instead of the normal 2 working."
 Colin
 Ask about the cooler
-Riley: "So why were you going in the cooler yesterday?"#Colin: "I already told you, I was helping out Gordon and Reegal. They practically begged me to help, the seafood department is so useless.#Riley: "I see."
+Riley: "So why were you going in the cooler yesterday?"#Colin: "I already told you, I was helping out Gordon and Reegal. They practically begged me to help, the seafood department is so useless."#Riley: "I see."
 Ask about inter-departmental relations
-Riley: "What happened between hot deli and seafood yesterday?"#Colin: "Seafood didn"t get their order in time, so we couldn"t get ours. I had to get the order for them."#Riley: "Why didn"t they get their order?"#Colin: "Don"t ask me, they"re idiots."
+Riley: "What happened between Hot Deli and Seafood yesterday?"#Colin: "Seafood didn"t get their order in time, so we couldn"t get ours. I had to get the order for them."#Riley: "Why didn"t they get their order?"#Colin: "Don"t ask me, they"re idiots."
 Ask about Reegal
 Riley: "What was Reegal having a problem with?"#Colin: "That idiot didn"t know how to get his order from the truck. He can"t even move boxes right."
 Gordon
 Ask about Colin
-Riley: "Why did colin help you last night?"#Gordon: "Everyone else in this department is useless, so we had to get Colin to take our order."
+Riley: "Why did Colin help you last night?"#Gordon: "Everyone else in this department is useless, so we had to get Colin to take our order."
 Ask about the cooler
 Riley: "Who went in the cooler last night?"#Gordon: "Don"t know, don"t care."
 Ask about suspicious people
 Riley: "Do you think anyone"s been acting suspicious lately?"#Gordon: "You"re the one going around interrogating everyone. How do we know you didn"t do anything?"
 Reegal
 Ask about Colin
-Riley: "What do you think about Colin?"#Reegal: "He"s pretty weird, he seemed really interested in getting into the cooler, I don"t know why.
+Riley: "What do you think about Colin?"#Reegal: "He"s pretty weird, he seemed really interested in getting into the cooler, I don"t know why."
 Ask about Gordon
 Riley: "What do you think about Gordon?"#Reegal: "He"s really mean, he always makes fun of me."
 Ask about Jason
-Riley: "What do you think about Jason?"#Reegal: "Who"s Jason?
+Riley: "What do you think about Jason?"#Reegal: "Who"s Jason?"

@@ -107,7 +107,6 @@ public class Menu extends javax.swing.JFrame {
 
                 }
 
-                System.out.println(descriptions);
 
                 phase2Scenes.add(new Phase2Scene(n, descriptions, dialogues));
 
@@ -117,9 +116,9 @@ public class Menu extends javax.swing.JFrame {
             }
 
         } catch (FileNotFoundException e) {
-            System.out.println(e);
         }
 
+        btnCall.setVisible(false);
         noInputScenes.get(0).playScene(display1, this);
 
     }
@@ -144,6 +143,7 @@ public class Menu extends javax.swing.JFrame {
         btnInvasive.setText("Accuse Colin");
         noInputScenes.get(2).playScene(display1, this);
         btnContinue.setVisible(true);
+        btnCall.setVisible(true);
         btnContinue.setEnabled(false);
     }
 
@@ -351,10 +351,8 @@ public class Menu extends javax.swing.JFrame {
             btnQuestion1.setText(phase1Scenes.get(sceneIndex).getDescription().get(3));
             btnQuestion2.setText(phase1Scenes.get(sceneIndex).getDescription().get(4));
             btnQuestion3.setText(phase1Scenes.get(sceneIndex).getDescription().get(5));
-            System.out.println(sceneIndex);
 
             for (Phase2Scene i : phase2Scenes) {
-                System.out.println(i.description);
             }
 
             type = 1;
@@ -404,8 +402,6 @@ public class Menu extends javax.swing.JFrame {
             btnContinue.setVisible(true);
         }
 
-        System.out.println("Scene Index: " + sceneIndex);
-        System.out.println("Phase: " + phase);
 
     }//GEN-LAST:event_btnQuestion3ActionPerformed
 
