@@ -53,6 +53,8 @@ public class Phase2Scene {
              
         }
         
+        System.out.println(s);
+        
         m.setDialogue(s);
     }
     

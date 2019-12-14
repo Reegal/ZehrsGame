@@ -17,115 +17,114 @@ import java.util.Scanner;
 public class Menu extends javax.swing.JFrame {
 
     ArrayList<NoInputScene> noInputScenes = new ArrayList();
-    ArrayList<Phase1Scene> phase1Scenes= new ArrayList();
-    ArrayList<Phase2Scene> phase2Scenes= new ArrayList();
-    
+    ArrayList<Phase1Scene> phase1Scenes = new ArrayList();
+    ArrayList<Phase2Scene> phase2Scenes = new ArrayList();
+
     int phase = 0;
-    
+
     int sceneIndex = 0;
-    
+
     int questionsAsked = 0;
-    
+
     int irritation = 0;
-    
+
     int type = 0;
-    
+
     int numcontinue = 0;
-    
+
     public Menu() {
         initComponents();
-        
-        try{
-            
+
+        try {
+
             File f = new File("src\\zehrsgame\\NoInputScenes.txt");
-            
+
             Scanner s = new Scanner(f);
-            
-            //System.out.println(s.nextLine());
-            
+
             String n;
-            
-            
+
             String[] d;
-            
-            while(s.hasNextLine()){
-                
-                
+
+            while (s.hasNextLine()) {
+
                 n = s.nextLine();
-                
+
                 d = s.nextLine().split("#");
-                
-                noInputScenes.add(new NoInputScene(n,d));
-                
-                
+
+                noInputScenes.add(new NoInputScene(n, d));
+
             }
-            
+
             f = new File("src\\zehrsgame\\Phase1Dialog.txt");
-            
+
             s = new Scanner(f);
-            
+
             ArrayList<String> descriptions = new ArrayList();
-            
+
             ArrayList<String[]> dialogues = new ArrayList();
-            
+
             ArrayList<Integer> irritations = new ArrayList();
-            
-            while(s.hasNextLine()){
-                
+
+            while (s.hasNextLine()) {
+
                 n = s.nextLine();
                 for (int i = 0; i < 9; i++) {
                     descriptions.add(s.nextLine());
-                
+
                     dialogues.add(s.nextLine().split("#"));
-                
+
                     irritations.add(Integer.parseInt(s.nextLine()));
                 }
-                
-                
-                phase1Scenes.add(new Phase1Scene(n,descriptions,dialogues,irritations));
+
+                phase1Scenes.add(new Phase1Scene(n, descriptions, dialogues, irritations));
+
+                descriptions = new ArrayList();
+
+                dialogues = new ArrayList();
+
+                irritations = new ArrayList();
             }
-            
-            f = new File("src\\zehrsgame\\Phase1Dialog.txt");
-            
+
+            f = new File("src\\zehrsgame\\Phase2Dialog.txt");
+
             s = new Scanner(f);
-            
+
             descriptions = new ArrayList();
-            
+
             dialogues = new ArrayList();
-            
-            
-            while(s.hasNextLine()){
-                
+
+            while (s.hasNextLine()) {
+
                 n = s.nextLine();
                 for (int i = 0; i < 3; i++) {
                     descriptions.add(s.nextLine());
-                
+
                     dialogues.add(s.nextLine().split("#"));
-                
+
                 }
                 
-                
-                phase2Scenes.add(new Phase2Scene(n,descriptions,dialogues));
+                System.out.println(descriptions);
+
+                phase2Scenes.add(new Phase2Scene(n, descriptions, dialogues));
+
+                descriptions = new ArrayList();
+
+                dialogues = new ArrayList();
             }
-            
-        }catch(FileNotFoundException e){
+
+        } catch (FileNotFoundException e) {
             System.out.println(e);
         }
-        
+
         noInputScenes.get(0).playScene(display1, this);
-        
-        
-        
-        
-        
+
     }
 
-    public void setDialogue(String s){
+    public void setDialogue(String s) {
         txtDialogue.setText(s);
-        
-        
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -293,24 +292,29 @@ public class Menu extends javax.swing.JFrame {
         btnQuestion1.setText(phase1Scenes.get(sceneIndex).getDescription().get(6));
         btnQuestion2.setText(phase1Scenes.get(sceneIndex).getDescription().get(7));
         btnQuestion3.setText(phase1Scenes.get(sceneIndex).getDescription().get(8));
-        
-        type = 3;
+
+        type = 2;
     }//GEN-LAST:event_btnUnrelatedActionPerformed
 
     private void btnCasualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCasualActionPerformed
         btnQuestion1.setText(phase1Scenes.get(sceneIndex).getDescription().get(3));
         btnQuestion2.setText(phase1Scenes.get(sceneIndex).getDescription().get(4));
         btnQuestion3.setText(phase1Scenes.get(sceneIndex).getDescription().get(5));
-        
-        type = 2;
+        System.out.println(sceneIndex);
+
+        for (Phase2Scene i : phase2Scenes) {
+            System.out.println(i.description);
+        }
+
+        type = 1;
     }//GEN-LAST:event_btnCasualActionPerformed
 
     private void btnInvasiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvasiveActionPerformed
         btnQuestion1.setText(phase1Scenes.get(sceneIndex).getDescription().get(0));
         btnQuestion2.setText(phase1Scenes.get(sceneIndex).getDescription().get(1));
         btnQuestion3.setText(phase1Scenes.get(sceneIndex).getDescription().get(2));
-        
-        type = 1;
+
+        type = 0;
     }//GEN-LAST:event_btnInvasiveActionPerformed
 
     private void btnCallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCallActionPerformed
@@ -318,142 +322,222 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCallActionPerformed
 
     private void btnQuestion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuestion3ActionPerformed
-        if(phase == 1){
-            phase1Scenes.get(sceneIndex).playScene(display1, this, 3*type - 1);
-            
+        if (phase == 1) {
+            int n = 0;
+            if (type == 0) {
+                n = 2;
+            } else if (type == 1) {
+                n = 5;
+            } else {
+                n = 8;
+            }
+
+            irritation += phase1Scenes.get(sceneIndex).playScene(display1, this, n);
+
             checkSceneChange();
-        }else{
+        } else {
             phase2Scenes.get(sceneIndex).playScene(display1, this, 2);
+            if (sceneIndex == phase1Scenes.size() - 1) {
+
+                //TODO JASON
+            } else {
+                btnContinue.setVisible(true);
+            }
         }
+        
+        System.out.println("Scene Index: " + sceneIndex);
+        System.out.println("Phase: " + phase);
+
     }//GEN-LAST:event_btnQuestion3ActionPerformed
 
     private void btnQuestion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuestion1ActionPerformed
-        if(phase == 1){
-            irritation += phase1Scenes.get(sceneIndex).playScene(display1, this, 1*type - 1);
-            
+        if (phase == 1) {
+            int n = 0;
+            if (type == 0) {
+                n = 0;
+            } else if (type == 1) {
+                n = 3;
+            } else {
+                n = 6;
+            }
+            irritation += phase1Scenes.get(sceneIndex).playScene(display1, this, n);
+
             checkSceneChange();
-        }else{
+        } else {
             phase2Scenes.get(sceneIndex).playScene(display1, this, 0);
+            if (sceneIndex == phase1Scenes.size() - 1) {
+
+                //TODO JASON
+            } else {
+                btnContinue.setVisible(true);
+            }
         }
+
     }//GEN-LAST:event_btnQuestion1ActionPerformed
 
     private void btnQuestion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuestion2ActionPerformed
-        if(phase == 1){
-            phase1Scenes.get(sceneIndex).playScene(display1, this, 2*type - 1);
-            
+        if (phase == 1) {
+            int n = 0;
+            if (type == 0) {
+                n = 1;
+            } else if (type == 1) {
+                n = 4;
+            } else {
+                n = 7;
+            }
+            irritation += phase1Scenes.get(sceneIndex).playScene(display1, this, n);
+
             checkSceneChange();
-        }else{
+        } else {
             phase2Scenes.get(sceneIndex).playScene(display1, this, 1);
+            if (sceneIndex == phase1Scenes.size() - 1) {
+
+                //TODO JASON
+            } else {
+                btnContinue.setVisible(true);
+            }
         }
+
     }//GEN-LAST:event_btnQuestion2ActionPerformed
 
     private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed
-        if(numcontinue == 0){
-           noInputScenes.get(1).playScene(display1, this);
-           
-           numcontinue++;
-        }else{
-            phase += 1;
+        if (phase == 2){
+            sceneIndex++;
+
+            display1.setCharacter(phase2Scenes.get(sceneIndex).getCharacter());
+
+            display1.repaint();
+
+            updateQuestions();
             
+            btnContinue.setVisible(false);
+            
+            setDialogue("");
+            
+        }else{
+            if (numcontinue == 0) {
+            noInputScenes.get(1).playScene(display1, this);
+
+            numcontinue++;
+
+            type = 0;
+        } else {
+            phase += 1;
+
             btnQuestion1.setEnabled(true);
-        btnQuestion2.setEnabled(true);
-        btnQuestion3.setEnabled(true);
-        btnCasual.setEnabled(true);
-        btnUnrelated.setEnabled(true);
-        btnInvasive.setEnabled(true);
-        
-        btnContinue.setVisible(false);
-        
-        display1.setCharacter(phase1Scenes.get(sceneIndex).getCharacter());
-                    
-        display1.repaint();
-        
-        updateQuestions();
-        
-        setDialogue("");
+            btnQuestion2.setEnabled(true);
+            btnQuestion3.setEnabled(true);
+            btnCasual.setEnabled(true);
+            btnUnrelated.setEnabled(true);
+            btnInvasive.setEnabled(true);
+
+            btnContinue.setVisible(false);
+
+            display1.setCharacter(phase1Scenes.get(sceneIndex).getCharacter());
+
+            display1.repaint();
+
+            updateQuestions();
+
+            setDialogue("");
+        }
         }
         
+
     }//GEN-LAST:event_btnContinueActionPerformed
 
-    private void checkSceneChange(){
-        if(irritation > 10){
+    private void checkSceneChange() {
+        if (irritation > 10) {
             setDialogue(txtDialogue.getText() + "\n" + phase1Scenes.get(sceneIndex).getCharacter() + " walked away out off irritation");
-                if(sceneIndex == phase1Scenes.size() -1){
-                    
-                    transitionPhase2();
-                }else{
-                    sceneIndex++;
-                    
-                    display1.setCharacter(phase1Scenes.get(sceneIndex).getCharacter());
-                    
-                    display1.repaint();
-                    
-                    updateQuestions();
-                }
-            }else if (irritation > 5){
-                setDialogue(txtDialogue.getText() + "\n" +phase1Scenes.get(sceneIndex).getCharacter() + " seems very irritated.");
+            if (sceneIndex == phase1Scenes.size() - 1) {
+
+                transitionPhase2();
+            } else {
+                sceneIndex++;
+
+                questionsAsked = 0;
                 
-                checkMaxQuestions();
-                
-            }else if(irritation > 0){
-                setDialogue(txtDialogue.getText() + "\n" +phase1Scenes.get(sceneIndex).getCharacter() + " seems mildly irritated.");
-                checkMaxQuestions();
-            }else if(irritation > -5){
-                setDialogue(txtDialogue.getText() + "\n" +phase1Scenes.get(sceneIndex).getCharacter() + " seems comfortable.");
-                checkMaxQuestions();
-            }else{
-                setDialogue(txtDialogue.getText() + "\n" +phase1Scenes.get(sceneIndex).getCharacter() + " seems very comfortable.");
-                checkMaxQuestions();
+                irritation = 0;
+
+                display1.setCharacter(phase1Scenes.get(sceneIndex).getCharacter());
+
+                display1.repaint();
+
+                updateQuestions();
             }
-        
-             
+            
+            setDialogue(txtDialogue.getText() + "\n" + "You went to go talk to "+  phase1Scenes.get(sceneIndex).getCharacter() + " instead.");
+        } else if (irritation > 5) {
+            setDialogue(txtDialogue.getText() + "\n" + phase1Scenes.get(sceneIndex).getCharacter() + " seems very irritated.");
+
+            checkMaxQuestions();
+
+        } else if (irritation > 0) {
+            setDialogue(txtDialogue.getText() + "\n" + phase1Scenes.get(sceneIndex).getCharacter() + " seems mildly irritated.");
+            checkMaxQuestions();
+        } else if (irritation > -5) {
+            setDialogue(txtDialogue.getText() + "\n" + phase1Scenes.get(sceneIndex).getCharacter() + " seems comfortable.");
+            checkMaxQuestions();
+        } else {
+            setDialogue(txtDialogue.getText() + "\n" + phase1Scenes.get(sceneIndex).getCharacter() + " seems very comfortable.");
+            checkMaxQuestions();
+        }
+
     }
-    
-    private void checkMaxQuestions(){
+
+    private void checkMaxQuestions() {
         questionsAsked++;
-        
-        if (questionsAsked > 5){
-            
+
+        if (questionsAsked > 5) {
+
             setDialogue(phase1Scenes.get(sceneIndex).getCharacter() + " walked away out off boredom");
-            
+
             sceneIndex++;
-                    
-                    display1.setCharacter(phase1Scenes.get(sceneIndex).getCharacter());
-                    
-                    display1.repaint();
-                    
-                    updateQuestions();
-                    
-                    questionsAsked = 0;
+
+            irritation = 0;
+
+            display1.setCharacter(phase1Scenes.get(sceneIndex).getCharacter());
+
+            display1.repaint();
+
+            updateQuestions();
+
+            questionsAsked = 0;
         }
     }
-    
-    private void updateQuestions(){
-        if(phase == 1){
+
+    private void updateQuestions() {
+        if (phase == 1) {
             btnQuestion1.setText(phase1Scenes.get(sceneIndex).getDescription().get(0));
             btnQuestion2.setText(phase1Scenes.get(sceneIndex).getDescription().get(1));
             btnQuestion3.setText(phase1Scenes.get(sceneIndex).getDescription().get(2));
-        
-            type = 1;
+
+            type = 0;
+        }else{
+            btnQuestion1.setText(phase2Scenes.get(sceneIndex).getDescription().get(0));
+            btnQuestion2.setText(phase2Scenes.get(sceneIndex).getDescription().get(1));
+            btnQuestion3.setText(phase2Scenes.get(sceneIndex).getDescription().get(2));
         }
     }
-    
-    private void transitionPhase2(){
+
+    private void transitionPhase2() {
         sceneIndex = 0;
-                    
+
         questionsAsked = 0;
+
+        phase++;
+
+        display1.setCharacter(phase2Scenes.get(sceneIndex).getCharacter());
+
+        display1.repaint();
+
+        btnCasual.setEnabled(false);
+        btnUnrelated.setEnabled(false);
+        btnInvasive.setEnabled(false);
         
-                    phase++;
-                    
-                    display1.setCharacter(phase2Scenes.get(sceneIndex).getCharacter());
-                    
-                    display1.repaint();
-                    
-                    btnCasual.setEnabled(false);
-                    btnUnrelated.setEnabled(false);
-                    btnInvasive.setEnabled(false);
+        updateQuestions();
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -488,7 +572,7 @@ public class Menu extends javax.swing.JFrame {
                 windowFrame.setVisible(true);
             }
         });
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
