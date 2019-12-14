@@ -465,8 +465,12 @@ public class Menu extends javax.swing.JFrame {
 
                 updateQuestions();
             }
+            if (phase == 1){
+                setDialogue(txtDialogue.getText() + "\n" + "You went to go talk to "+  phase1Scenes.get(sceneIndex).getCharacter() + " instead.");
+            }else{
+                setDialogue(txtDialogue.getText() + "\n" + "You went to go talk to "+  phase2Scenes.get(sceneIndex).getCharacter() + " instead.");
+            }
             
-            setDialogue(txtDialogue.getText() + "\n" + "You went to go talk to "+  phase1Scenes.get(sceneIndex).getCharacter() + " instead.");
         } else if (irritation > 5) {
             setDialogue(txtDialogue.getText() + "\n" + phase1Scenes.get(sceneIndex).getCharacter() + " seems very irritated.");
 
@@ -503,6 +507,12 @@ public class Menu extends javax.swing.JFrame {
             updateQuestions();
 
             questionsAsked = 0;
+            
+            if (phase == 1){
+                setDialogue(txtDialogue.getText() + "\n" + "You went to go talk to "+  phase1Scenes.get(sceneIndex).getCharacter() + " instead.");
+            }else{
+                setDialogue(txtDialogue.getText() + "\n" + "You went to go talk to "+  phase2Scenes.get(sceneIndex).getCharacter() + " instead.");
+            }
         }
     }
 
