@@ -7,6 +7,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="enabled" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -102,6 +103,7 @@
     <Component class="javax.swing.JButton" name="btnUnrelated">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ask Unrelated Question"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUnrelatedActionPerformed"/>
@@ -110,6 +112,7 @@
     <Component class="javax.swing.JButton" name="btnCasual">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ask Casual Question"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCasualActionPerformed"/>
@@ -118,6 +121,7 @@
     <Component class="javax.swing.JButton" name="btnInvasive">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ask Invasive Question"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInvasiveActionPerformed"/>
@@ -126,6 +130,7 @@
     <Component class="javax.swing.JButton" name="btnCall">
       <Properties>
         <Property name="text" type="java.lang.String" value="Call Mr. Zehrs"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCallActionPerformed"/>
@@ -158,6 +163,7 @@
     <Component class="javax.swing.JButton" name="btnQuestion3">
       <Properties>
         <Property name="text" type="java.lang.String" value="Question 3"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQuestion3ActionPerformed"/>
@@ -166,6 +172,7 @@
     <Component class="javax.swing.JButton" name="btnQuestion1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Question 1"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQuestion1ActionPerformed"/>
@@ -174,6 +181,7 @@
     <Component class="javax.swing.JButton" name="btnQuestion2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Question 2"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQuestion2ActionPerformed"/>

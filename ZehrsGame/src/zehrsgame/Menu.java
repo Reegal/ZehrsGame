@@ -5,19 +5,117 @@
  */
 package zehrsgame;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *
  * @author Reegal
  */
 public class Menu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Menu
-     */
+    ArrayList<NoInputScene> noInputScenes;
+    ArrayList<Phase1Scene> phase1Scenes;
+    ArrayList<Phase2Scene> phase2Scenes;
+    
+    int phase = 0;
+    
+    int sceneIndex = 0;
+    
+    int questionsAsked = 0;
+    
+    int irritation = 0;
+    
+    int type = 0;
+    
     public Menu() {
         initComponents();
+        
+        try{
+            File f = new File("");
+            
+            Scanner s = new Scanner(f);
+            
+            String n;
+            
+            String[] d;
+            
+            while(s.hasNextLine()){
+                n = s.nextLine();
+                
+                d = s.nextLine().split("#");
+                
+                noInputScenes.add(new NoInputScene(n,d));
+            }
+            
+            f = new File("");
+            
+            s = new Scanner(f);
+            
+            ArrayList<String> descriptions = new ArrayList();
+            
+            ArrayList<String[]> dialogues = new ArrayList();
+            
+            ArrayList<Integer> irritations = new ArrayList();
+            
+            while(s.hasNextLine()){
+                
+                n = s.nextLine();
+                for (int i = 0; i < 9; i++) {
+                    descriptions.add(s.nextLine());
+                
+                    dialogues.add(s.nextLine().split("#"));
+                
+                    irritations.add(Integer.parseInt(s.nextLine()));
+                }
+                
+                
+                phase1Scenes.add(new Phase1Scene(n,descriptions,dialogues,irritations));
+            }
+            
+            f = new File("");
+            
+            s = new Scanner(f);
+            
+            descriptions = new ArrayList();
+            
+             dialogues = new ArrayList();
+            
+            
+            while(s.hasNextLine()){
+                
+                n = s.nextLine();
+                for (int i = 0; i < 3; i++) {
+                    descriptions.add(s.nextLine());
+                
+                    dialogues.add(s.nextLine().split("#"));
+                
+                }
+                
+                
+                phase2Scenes.add(new Phase2Scene(n,descriptions,dialogues));
+            }
+            
+        }catch(FileNotFoundException e){
+            System.out.println(e);
+        }
+        
+        noInputScenes.get(0).playScene(display1, this);
+        noInputScenes.get(1).playScene(display1, this);
+        
+        phase += 1;
+        
+        
     }
 
+    public void setDialogue(String s){
+        txtDialogue.setText(s);
+        
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,12 +139,14 @@ public class Menu extends javax.swing.JFrame {
         btnQuestion2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setEnabled(false);
 
         txtDialogue.setColumns(20);
         txtDialogue.setRows(5);
         jScrollPane1.setViewportView(txtDialogue);
 
         btnUnrelated.setText("Ask Unrelated Question");
+        btnUnrelated.setEnabled(false);
         btnUnrelated.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUnrelatedActionPerformed(evt);
@@ -54,6 +154,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnCasual.setText("Ask Casual Question");
+        btnCasual.setEnabled(false);
         btnCasual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCasualActionPerformed(evt);
@@ -61,6 +162,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnInvasive.setText("Ask Invasive Question");
+        btnInvasive.setEnabled(false);
         btnInvasive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInvasiveActionPerformed(evt);
@@ -68,6 +170,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnCall.setText("Call Mr. Zehrs");
+        btnCall.setEnabled(false);
         btnCall.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCallActionPerformed(evt);
@@ -88,6 +191,7 @@ public class Menu extends javax.swing.JFrame {
         );
 
         btnQuestion3.setText("Question 3");
+        btnQuestion3.setEnabled(false);
         btnQuestion3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQuestion3ActionPerformed(evt);
@@ -95,6 +199,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnQuestion1.setText("Question 1");
+        btnQuestion1.setEnabled(false);
         btnQuestion1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQuestion1ActionPerformed(evt);
@@ -102,6 +207,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnQuestion2.setText("Question 2");
+        btnQuestion2.setEnabled(false);
         btnQuestion2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQuestion2ActionPerformed(evt);
@@ -162,15 +268,27 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUnrelatedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnrelatedActionPerformed
-        // TODO add your handling code here:
+        btnQuestion1.setText(phase1Scenes.get(sceneIndex).getDescription().get(6));
+        btnQuestion2.setText(phase1Scenes.get(sceneIndex).getDescription().get(7));
+        btnQuestion3.setText(phase1Scenes.get(sceneIndex).getDescription().get(8));
+        
+        type = 3;
     }//GEN-LAST:event_btnUnrelatedActionPerformed
 
     private void btnCasualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCasualActionPerformed
-        // TODO add your handling code here:
+        btnQuestion1.setText(phase1Scenes.get(sceneIndex).getDescription().get(3));
+        btnQuestion2.setText(phase1Scenes.get(sceneIndex).getDescription().get(4));
+        btnQuestion3.setText(phase1Scenes.get(sceneIndex).getDescription().get(5));
+        
+        type = 2;
     }//GEN-LAST:event_btnCasualActionPerformed
 
     private void btnInvasiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvasiveActionPerformed
-        // TODO add your handling code here:
+        btnQuestion1.setText(phase1Scenes.get(sceneIndex).getDescription().get(0));
+        btnQuestion2.setText(phase1Scenes.get(sceneIndex).getDescription().get(1));
+        btnQuestion3.setText(phase1Scenes.get(sceneIndex).getDescription().get(2));
+        
+        type = 1;
     }//GEN-LAST:event_btnInvasiveActionPerformed
 
     private void btnCallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCallActionPerformed
@@ -178,17 +296,114 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCallActionPerformed
 
     private void btnQuestion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuestion3ActionPerformed
-        // TODO add your handling code here:
+        if(phase == 1){
+            phase1Scenes.get(sceneIndex).playScene(display1, this, 3*type - 1);
+            
+            checkSceneChange();
+        }else{
+            phase2Scenes.get(sceneIndex).playScene(display1, this, 2);
+        }
     }//GEN-LAST:event_btnQuestion3ActionPerformed
 
     private void btnQuestion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuestion1ActionPerformed
-        // TODO add your handling code here:
+        if(phase == 1){
+            irritation += phase1Scenes.get(sceneIndex).playScene(display1, this, 1*type - 1);
+            
+            checkSceneChange();
+        }else{
+            phase2Scenes.get(sceneIndex).playScene(display1, this, 0);
+        }
     }//GEN-LAST:event_btnQuestion1ActionPerformed
 
     private void btnQuestion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuestion2ActionPerformed
-        // TODO add your handling code here:
+        if(phase == 1){
+            phase1Scenes.get(sceneIndex).playScene(display1, this, 2*type - 1);
+            
+            checkSceneChange();
+        }else{
+            phase2Scenes.get(sceneIndex).playScene(display1, this, 1);
+        }
     }//GEN-LAST:event_btnQuestion2ActionPerformed
 
+    private void checkSceneChange(){
+        if(irritation > 10){
+            setDialogue(phase1Scenes.get(sceneIndex).getCharacter() + " walked away out off irritation");
+                if(sceneIndex == phase1Scenes.size() -1){
+                    
+                    transitionPhase2();
+                }else{
+                    sceneIndex++;
+                    
+                    display1.setCharacter(phase1Scenes.get(sceneIndex).getCharacter());
+                    
+                    display1.repaint();
+                    
+                    updateQuestions();
+                }
+            }else if (irritation > 5){
+                setDialogue(phase1Scenes.get(sceneIndex).getCharacter() + " seems very irritated.");
+                
+                checkMaxQuestions();
+                
+            }else if(irritation > 0){
+                setDialogue(phase1Scenes.get(sceneIndex).getCharacter() + " seems mildly irritated.");
+                checkMaxQuestions();
+            }else if(irritation > -5){
+                setDialogue(phase1Scenes.get(sceneIndex).getCharacter() + " seems comfortable.");
+                checkMaxQuestions();
+            }else{
+                setDialogue(phase1Scenes.get(sceneIndex).getCharacter() + " seems very comfortable.");
+                checkMaxQuestions();
+            }
+        
+             
+    }
+    
+    private void checkMaxQuestions(){
+        questionsAsked++;
+        
+        if (questionsAsked > 5){
+            
+            setDialogue(phase1Scenes.get(sceneIndex).getCharacter() + " walked away out off boredom");
+            
+            sceneIndex++;
+                    
+                    display1.setCharacter(phase1Scenes.get(sceneIndex).getCharacter());
+                    
+                    display1.repaint();
+                    
+                    updateQuestions();
+                    
+                    questionsAsked = 0;
+        }
+    }
+    
+    private void updateQuestions(){
+        if(phase == 1){
+            btnQuestion1.setText(phase1Scenes.get(sceneIndex).getDescription().get(0));
+            btnQuestion2.setText(phase1Scenes.get(sceneIndex).getDescription().get(1));
+            btnQuestion3.setText(phase1Scenes.get(sceneIndex).getDescription().get(2));
+        
+            type = 1;
+        }
+    }
+    
+    private void transitionPhase2(){
+        sceneIndex = 0;
+                    
+        questionsAsked = 0;
+        
+                    phase++;
+                    
+                    display1.setCharacter(phase2Scenes.get(sceneIndex).getCharacter());
+                    
+                    display1.repaint();
+                    
+                    btnCasual.setEnabled(false);
+                    btnUnrelated.setEnabled(false);
+                    btnInvasive.setEnabled(false);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -223,6 +438,7 @@ public class Menu extends javax.swing.JFrame {
                 windowFrame.setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
