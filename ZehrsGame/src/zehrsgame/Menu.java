@@ -16,9 +16,9 @@ import java.util.Scanner;
  */
 public class Menu extends javax.swing.JFrame {
 
-    ArrayList<NoInputScene> noInputScenes;
-    ArrayList<Phase1Scene> phase1Scenes;
-    ArrayList<Phase2Scene> phase2Scenes;
+    ArrayList<NoInputScene> noInputScenes = new ArrayList();
+    ArrayList<Phase1Scene> phase1Scenes= new ArrayList();
+    ArrayList<Phase2Scene> phase2Scenes= new ArrayList();
     
     int phase = 0;
     
@@ -30,27 +30,37 @@ public class Menu extends javax.swing.JFrame {
     
     int type = 0;
     
+    int numcontinue = 0;
+    
     public Menu() {
         initComponents();
         
         try{
-            File f = new File("");
+            
+            File f = new File("src\\zehrsgame\\NoInputScenes.txt");
             
             Scanner s = new Scanner(f);
             
+            //System.out.println(s.nextLine());
+            
             String n;
+            
             
             String[] d;
             
             while(s.hasNextLine()){
+                
+                
                 n = s.nextLine();
                 
                 d = s.nextLine().split("#");
                 
                 noInputScenes.add(new NoInputScene(n,d));
+                
+                
             }
             
-            f = new File("");
+            f = new File("src\\zehrsgame\\Phase1Dialog.txt");
             
             s = new Scanner(f);
             
@@ -75,13 +85,13 @@ public class Menu extends javax.swing.JFrame {
                 phase1Scenes.add(new Phase1Scene(n,descriptions,dialogues,irritations));
             }
             
-            f = new File("");
+            f = new File("src\\zehrsgame\\Phase1Dialog.txt");
             
             s = new Scanner(f);
             
             descriptions = new ArrayList();
             
-             dialogues = new ArrayList();
+            dialogues = new ArrayList();
             
             
             while(s.hasNextLine()){
@@ -103,9 +113,9 @@ public class Menu extends javax.swing.JFrame {
         }
         
         noInputScenes.get(0).playScene(display1, this);
-        noInputScenes.get(1).playScene(display1, this);
         
-        phase += 1;
+        
+        
         
         
     }
@@ -137,12 +147,14 @@ public class Menu extends javax.swing.JFrame {
         btnQuestion3 = new javax.swing.JButton();
         btnQuestion1 = new javax.swing.JButton();
         btnQuestion2 = new javax.swing.JButton();
+        btnContinue = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setEnabled(false);
 
         txtDialogue.setColumns(20);
+        txtDialogue.setLineWrap(true);
         txtDialogue.setRows(5);
+        txtDialogue.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txtDialogue);
 
         btnUnrelated.setText("Ask Unrelated Question");
@@ -214,6 +226,13 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        btnContinue.setText("Continue");
+        btnContinue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContinueActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -232,13 +251,14 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnQuestion1, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
                     .addComponent(btnQuestion2, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                    .addComponent(btnQuestion3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))
+                    .addComponent(btnQuestion3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                    .addComponent(btnContinue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -256,7 +276,9 @@ public class Menu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnQuestion2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnQuestion3)))
+                        .addComponent(btnQuestion3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnContinue)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -325,9 +347,37 @@ public class Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnQuestion2ActionPerformed
 
+    private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed
+        if(numcontinue == 0){
+           noInputScenes.get(1).playScene(display1, this);
+           
+           numcontinue++;
+        }else{
+            phase += 1;
+            
+            btnQuestion1.setEnabled(true);
+        btnQuestion2.setEnabled(true);
+        btnQuestion3.setEnabled(true);
+        btnCasual.setEnabled(true);
+        btnUnrelated.setEnabled(true);
+        btnInvasive.setEnabled(true);
+        
+        btnContinue.setVisible(false);
+        
+        display1.setCharacter(phase1Scenes.get(sceneIndex).getCharacter());
+                    
+        display1.repaint();
+        
+        updateQuestions();
+        
+        setDialogue("");
+        }
+        
+    }//GEN-LAST:event_btnContinueActionPerformed
+
     private void checkSceneChange(){
         if(irritation > 10){
-            setDialogue(phase1Scenes.get(sceneIndex).getCharacter() + " walked away out off irritation");
+            setDialogue(txtDialogue.getText() + "\n" + phase1Scenes.get(sceneIndex).getCharacter() + " walked away out off irritation");
                 if(sceneIndex == phase1Scenes.size() -1){
                     
                     transitionPhase2();
@@ -341,18 +391,18 @@ public class Menu extends javax.swing.JFrame {
                     updateQuestions();
                 }
             }else if (irritation > 5){
-                setDialogue(phase1Scenes.get(sceneIndex).getCharacter() + " seems very irritated.");
+                setDialogue(txtDialogue.getText() + "\n" +phase1Scenes.get(sceneIndex).getCharacter() + " seems very irritated.");
                 
                 checkMaxQuestions();
                 
             }else if(irritation > 0){
-                setDialogue(phase1Scenes.get(sceneIndex).getCharacter() + " seems mildly irritated.");
+                setDialogue(txtDialogue.getText() + "\n" +phase1Scenes.get(sceneIndex).getCharacter() + " seems mildly irritated.");
                 checkMaxQuestions();
             }else if(irritation > -5){
-                setDialogue(phase1Scenes.get(sceneIndex).getCharacter() + " seems comfortable.");
+                setDialogue(txtDialogue.getText() + "\n" +phase1Scenes.get(sceneIndex).getCharacter() + " seems comfortable.");
                 checkMaxQuestions();
             }else{
-                setDialogue(phase1Scenes.get(sceneIndex).getCharacter() + " seems very comfortable.");
+                setDialogue(txtDialogue.getText() + "\n" +phase1Scenes.get(sceneIndex).getCharacter() + " seems very comfortable.");
                 checkMaxQuestions();
             }
         
@@ -444,6 +494,7 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCall;
     private javax.swing.JButton btnCasual;
+    private javax.swing.JButton btnContinue;
     private javax.swing.JButton btnInvasive;
     private javax.swing.JButton btnQuestion1;
     private javax.swing.JButton btnQuestion2;

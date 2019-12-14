@@ -1,0 +1,112 @@
+Gordon
+Ask about temp logs
+Riley: *Pulls out temp check logs* "You signed off these temp check logs?"#Gordon: "I don"t know you tell me."#Riley: "Your initials are signed beside 5 consecutive readings of  0.2 degrees. Sounds awfully too consistent to me."#Gordon: "Must"ve been Reegal signing off for me, I don"t think he actually knows how they work. He probably just copied what I wrote. I think I should sue."
+6
+Ask about smell
+Riley: "Didn"t it smell bad in here with all the fish you let rot?"#Gordon: "No it takes a couple of hours before the fish start to smell like you do. Have you ever heard of deodorant bro?"
+21
+Ask about being later
+Riley: "Why did you come in 30 minutes late last night?"#Gordon: "None of your business. I was busy."#Riley: "Yeah? Busy with what?"#Gordon: "Busy with your mom. "
+11
+Ask about the seafood order
+Riley: "Hey, did you work the seafood order last night?"#Gordon: "Yeah, I figured I"d do it instead of the moron who"s in this morning."
+-3
+Ask about cooler
+Riley: "Well, Did you notice anything off about the cooler?"#Gordon: "Yeah I noticed the salmon pile all over the floor, the one beside the thermostat. You know you"re supposed to clean up after yourself right?"
+0
+Ask who was closing
+Riley: "Were you closing by yourself last night?"#Gordon: "No, it was me and Reegal. That guy is useless. He was asking stupid questions like "what temperature does fish go bad at?""
+1
+Ask about Spartahacks
+Riley: "Hey are you going to SpartaHacks?"#Gordon: "Uhhh yeah when is it again?"#Riley: "It starts in like ten minutes."#Gordon: "Oh I thought it was next week. Thank you for reminding me."
+-4
+Ask about shift
+Riley: "Hey do you still need me to take your shift tomorrow?"#Gordon: "Yeah can you?"#Riley: "Yeah"#Gordon: "Thank you."
+-5
+Ask about Christmas
+Riley: "Are you going anywhere for Christmas?"#Gordon: "Nah, staying at home gonna work some more hours."#Riley: "Yeah me too man."
+-4
+Reegal
+Ask about salmon pile
+Riley: "Why"d you leave that pile of Salmon on the ground in the cooler?"#Reegal: "..."
+7
+Ask about frequent breaks
+Riley: "Why"d you keep sneaking off to the break room yesterday?"#Reegal "..."
+7
+Ask about after work habits
+Riley: "What did you do after you got home yesterday?"#Reegal: "Just a lot cleaning around the house and finished up the Chris Hadfield Problem"
+2
+Ask who closed
+Riley: "Who closed last night?"#Reegal: "Gordon and I closed last night, I had a lot of issues with the cooler though."
+-2
+Ask about transfers
+Riley: "When did you transfer to the Seafood Department?"#Reegal: "I"ve been here for 5 months now I think."#Riley: "That"s a really long time to still not have the hang of things"
+5
+Ask who was last in the cooler
+Riley: "Who was the last person in the cooler last night?"#Reegal: "After Gordan and I finished up the work, Colin said he left his keys in there and went to get them after having helped out."
+2
+Ask about school work
+Riley: "How"ve your class loads been?"#Reegal: "Light for the most part except Calculus and Vectors."
+-5
+Ask about weekend plans
+Riley: "What"re you up to this weekend?"#Reegal: "I have family visiting so we are all going out to eat at some Indian restaurant my mom picked out"
+-10
+Ask his favourite drink
+Riley: "What"s your drink of choice?"#Reegal: "I just can"t get enough of Dr. Pepper, something about cherry flavoured sodas in general just have me hooked."
+-10
+Colin
+Ask about the cooler
+Riley: "Why were you in the seafood cooler last night?"#Colin: "I just left my keys in there."#Riley: "How do you lose your keys in a department you don"t work in?"#Colin: "I was just helping out and I had to use my keys to cut the boxes."#Riley: "Next time just ask for a boxcutter."
+10
+Ask about the Hot Deli
+Riley: "Why did the Hot Deli do so bad this financial quarter?"#Colin: "It"s not our fault the supply trucks were too busy delivering seafood rather than chicken tenders."#Riley: "Yeah definitely."
+9
+Ask about the thermostat
+Riley: "Did you notice anything wrong with the thermostat in the fish cooler?"#Colin: "No it was fine when I was in, cold as usual."#Riley: "Hmm something seems fishy."
+13
+Ask about helping out
+Riley: "How come you were helping out in seafood when hot deli was already busy?"#Colin: "Reegal asked me for help and I knew I could stay late to handle it."
+-1
+Ask about staying late
+Riley: "So how late did you end up staying last night?"#Colin: "Just an extra 45 minutes, II just needed to do some cleaning and all."
+-3
+Ask about salmon
+Riley: "How do you feel about salmon?"#Colin: "I hate it. Worst food ever."
+1
+Ask about the weekend
+Riley "What are you up to this weekend?"#Colin "Mind your own business."
+1
+Ask about potato wedges
+Riley "So what"s the secret ingredient that makes the potato wedges so good?"#Colin "How would I know? We get them shipped in frozen and pre-prepared."#Riley "You don"t know anything about how they"re made?"#Colin "All I know is that too many of those things will kill you."
+-4
+Ask about SpartaHacks
+Riley "You excited for SpartaHacks?"#Colin "What's a SpartaHack?"
+-5
+Jason
+Ask about leaving early
+Riley "How come you left 15 minutes early last night?"#Jason "Some things take a higher priority. I had other business to attend to."
+5
+Ask about loyalty
+Riley "I heard you were thinking about quitting. If another department asked you to sabotage us, would you do it?"#Jason "My loyalties are fluid and change with time. Keep talking like that and they"ll flow to another counter."
+30
+Ask about mysteriousness
+Riley "Why can"t you just give me a straight answer?"#Jason "If I lead you to all the answers, you won"t learn how to find them yourself."
+3
+Ask about the Hot Deli
+Riley "What do you think of the Hot Deli?"#Jason "Without their potato wedges, life would lose its worth."
+-3
+Ask about Produce
+Riley "What do you think of Produce?"#Jason "Fruits and vegetables are the scourge of the nation."#Riley "Don"t you think we need to eat healthier? Obesity is on the rise, you know. It could be this generation"s worst killer."#Jason "Overpopulation is a problem, too."
+2
+Ask about his plans after he quits
+Riley "What do you think you"ll do after you leave Zehrs?"#Jason "I plan to reflect upon the interconnection between all components of the Earth."#Riley "Woah. Sounds heavy."#Jason "You wouldn"t understand it."
+-3
+Ask about his weekend
+Riley "What are you up to this weekend?"#Jason "I"m doing some volunteering at the local insane asylum."#Riley "That"s really generous of you. You must feel pretty good about yourself."#Jason "Not really. Family reunions are a b****."
+-1
+Ask about SpartaHacks
+Riley "You excited for SpartaHacks?"#Jason "Yeah. I"m gonna make an seafood-based RPG."#Riley "That sounds super great. I bet it"ll win first place."
+-3
+Sit in silence
+Riley "..."#Jason "..."
+-20

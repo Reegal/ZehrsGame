@@ -31,16 +31,15 @@ public class NoInputScene {
     public void playScene(Display d, Menu m){
         d.setCharacter(name);
         d.repaint();
-        try {
-            for (int i = 0; i < dialogue.length; i++) {
-                m.setDialogue(dialogue[i]);
-                
-                Thread.sleep(4000);
-            }
-            
-            
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
+        
+        String s = "";
+        
+        for (int i = 0; i < dialogue.length; i++) {
+                s+=dialogue[i] + "\n";
+             
         }
+        
+        m.setDialogue(s);
+        
     }
 }

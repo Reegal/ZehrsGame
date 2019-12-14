@@ -55,17 +55,16 @@ public class Phase1Scene {
     public int playScene(Display d, Menu m, int n){
         d.setCharacter(character);
         d.repaint();
-        try {
-            for (int i = 0; i < dialogue.get(n).length; i++) {
-                m.setDialogue(dialogue.get(n)[i]);
-                
-                Thread.sleep(4000);
-            }
-            
-            
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
+        
+        String s = "";
+        
+        for (int i = 0; i < dialogue.get(n).length; i++) {
+                s+=dialogue.get(n)[i] + "\n";
+             
         }
+        
+        m.setDialogue(s);
+        
         return irritation.get(n);
     }
     

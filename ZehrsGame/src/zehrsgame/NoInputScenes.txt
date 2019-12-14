@@ -1,0 +1,12 @@
+MrZehrs
+Mr. Zehrs: "Riley! I need your help to catch whoever sabotaged the seafood department."#Riley: "What do you mean sabotaged the seafood department?"#Mr. Zehrs: "Someone broke the refrigerator last night and all the fish got spoiled."#Mr. Zehrs: "You were the only one off of work yesterday so I know you couldn"t have done it."#Mr. Zehrs: "I need you to talk to those who were on shift yesterday and determine who broke it"#Mr. Zehrs: "The suspects are Gordon, Colin, Reegal & Jason"#Mr. Zehrs: "Call me whenever you think you know who did it"#Riley: "But I have to go to-"#*Mr. Zehrs Leaves*
+Cutten
+Cutten: "Hey Riley, I"m here to pick up the order of seafood for SpartaHacks IV"#Riley: "Yea sure, can I just get the order number you got?"#Cutten: "Upside down 6, Just remember that you have to be at SpartaHacks in [Insert Time]"#Riley: "I"ll be there, don"t worry. See you soon."#*Cutten Leaves*
+MrZehrs
+Mr Zehrs: "Well Riley, thanks for all your hard work this morning. Who do you think did it?"#[choose between Colin, Reegal, Jason, Gordon]#Mr Zehrs: "Your detective work is unmatched, Riley. But we still need some solid evidence before we reprimand the perpetrator""#Mr Zehrs: "Wait! We can check the security tapes!"#Riley: "Why didn"t you tell me about the security tapes before you made me interview all those people!??"#Mr Zehrs "Talk to me like that again and you"re out of a job. Let"s watch the tape."
+MrZehrs
+Mr Zehrs: "Riley!! You were right! Nice work! I"ll have Colin reprimanded immediately. And take tomorrow off!"#Riley: "Nice, I was right! Now, I better get to SpartaHacks!"
+Cutten
+Mr. Cutten: "Riley, you made it! Now get coding!"#THE END
+MrZehrs
+Mr Zehrs: "Riley! How could you mislead me like this? [name] was completely innocent!"#Riley: "I got it wrong? Who was the real perp?"#Mr Zehrs: "Sorry, that information is for upper management only. And because you lied to me, you"re working late today!"#Riley: "Oh no! Now I won"t be able to make it to SpartaHacks!"#THE END
