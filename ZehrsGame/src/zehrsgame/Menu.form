@@ -29,21 +29,22 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jScrollPane1" max="32767" attributes="0"/>
-                  <Component id="display1" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnCasual" pref="252" max="32767" attributes="0"/>
-                  <Component id="btnInvasive" alignment="0" pref="252" max="32767" attributes="0"/>
-                  <Component id="btnUnrelated" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnCall" alignment="1" pref="252" max="32767" attributes="0"/>
-                  <Component id="lblStatus" max="32767" attributes="0"/>
-                  <Component id="btnQuestion1" alignment="0" pref="252" max="32767" attributes="0"/>
-                  <Component id="btnQuestion2" alignment="0" pref="252" max="32767" attributes="0"/>
-                  <Component id="btnQuestion3" alignment="1" pref="252" max="32767" attributes="0"/>
-                  <Component id="btnContinue" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="display1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnCasual" pref="252" max="32767" attributes="0"/>
+                          <Component id="btnInvasive" alignment="0" pref="252" max="32767" attributes="0"/>
+                          <Component id="btnUnrelated" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnCall" alignment="1" pref="252" max="32767" attributes="0"/>
+                          <Component id="btnQuestion1" alignment="0" pref="252" max="32767" attributes="0"/>
+                          <Component id="btnQuestion2" alignment="0" pref="252" max="32767" attributes="0"/>
+                          <Component id="btnQuestion3" alignment="1" pref="252" max="32767" attributes="0"/>
+                          <Component id="btnContinue" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="jScrollPane1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -77,10 +78,7 @@
                   </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="lblStatus" max="32767" attributes="0"/>
-                  <Component id="jScrollPane1" pref="129" max="32767" attributes="0"/>
-              </Group>
+              <Component id="jScrollPane1" pref="217" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -163,8 +161,6 @@
         </DimensionLayout>
       </Layout>
     </Container>
-    <Component class="javax.swing.JLabel" name="lblStatus">
-    </Component>
     <Component class="javax.swing.JButton" name="btnQuestion3">
       <Properties>
         <Property name="text" type="java.lang.String" value="Question 3"/>
