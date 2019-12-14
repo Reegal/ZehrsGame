@@ -35,14 +35,14 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnCasual" pref="186" max="32767" attributes="0"/>
-                  <Component id="btnInvasive" alignment="0" pref="186" max="32767" attributes="0"/>
+                  <Component id="btnCasual" pref="252" max="32767" attributes="0"/>
+                  <Component id="btnInvasive" alignment="0" pref="252" max="32767" attributes="0"/>
                   <Component id="btnUnrelated" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnCall" alignment="1" pref="186" max="32767" attributes="0"/>
+                  <Component id="btnCall" alignment="1" pref="252" max="32767" attributes="0"/>
                   <Component id="lblStatus" max="32767" attributes="0"/>
-                  <Component id="btnQuestion1" alignment="0" pref="186" max="32767" attributes="0"/>
-                  <Component id="btnQuestion2" alignment="0" pref="186" max="32767" attributes="0"/>
-                  <Component id="btnQuestion3" alignment="1" pref="186" max="32767" attributes="0"/>
+                  <Component id="btnQuestion1" alignment="0" pref="252" max="32767" attributes="0"/>
+                  <Component id="btnQuestion2" alignment="0" pref="252" max="32767" attributes="0"/>
+                  <Component id="btnQuestion3" alignment="1" pref="252" max="32767" attributes="0"/>
                   <Component id="btnContinue" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>

@@ -31,6 +31,8 @@ public class Menu extends javax.swing.JFrame {
     int type = 0;
 
     int numcontinue = 0;
+    
+    boolean right = false;
 
     public Menu() {
         initComponents();
@@ -123,6 +125,45 @@ public class Menu extends javax.swing.JFrame {
     public void setDialogue(String s) {
         txtDialogue.setText(s);
 
+    }
+    
+    public void endScene() {
+        phase ++;
+        btnQuestion1.setEnabled(false);
+        btnQuestion2.setEnabled(false);
+        btnQuestion3.setEnabled(false);
+        btnCasual.setEnabled(true);
+        btnCall.setEnabled(true);
+        btnUnrelated.setEnabled(true);
+        btnInvasive.setEnabled(true);
+        btnCasual.setText("Accuse Gordon");
+        btnCall.setText("Accuse Jason");
+        btnUnrelated.setText("Accuse Reegal");
+        btnInvasive.setText("Accuse Colin");
+        noInputScenes.get(2).playScene(display1, this);
+        btnContinue.setVisible(true);
+        btnContinue.setEnabled(true);
+    }
+    
+    public void endMid() {
+        phase ++;
+        btnCasual.setEnabled(false);
+        btnCall.setEnabled(false);
+        btnUnrelated.setEnabled(false);
+        btnInvasive.setEnabled(false);
+        btnContinue.setEnabled(true);
+        noInputScenes.get(3).playScene(display1, this);
+    }
+    
+    public void endFinal() {
+        if (right) {
+            phase ++;
+            noInputScenes.get(4).playScene(display1, this);
+            btnContinue.setEnabled(true);
+        } else {
+            noInputScenes.get(6).playScene(display1, this);
+            btnContinue.setEnabled(false);
+        }
     }
 
     /**
@@ -243,14 +284,14 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(display1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCasual, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                    .addComponent(btnInvasive, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                    .addComponent(btnCasual, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
+                    .addComponent(btnInvasive, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
                     .addComponent(btnUnrelated, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCall, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                    .addComponent(btnCall, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
                     .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnQuestion1, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                    .addComponent(btnQuestion2, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                    .addComponent(btnQuestion3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                    .addComponent(btnQuestion1, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
+                    .addComponent(btnQuestion2, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
+                    .addComponent(btnQuestion3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
                     .addComponent(btnContinue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -289,14 +330,21 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUnrelatedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnrelatedActionPerformed
+        if (phase == 3) {
+            endMid();
+        } else {
         btnQuestion1.setText(phase1Scenes.get(sceneIndex).getDescription().get(6));
         btnQuestion2.setText(phase1Scenes.get(sceneIndex).getDescription().get(7));
         btnQuestion3.setText(phase1Scenes.get(sceneIndex).getDescription().get(8));
 
         type = 2;
+        }
     }//GEN-LAST:event_btnUnrelatedActionPerformed
 
     private void btnCasualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCasualActionPerformed
+        if (phase == 3) {
+            endMid();
+        } else {
         btnQuestion1.setText(phase1Scenes.get(sceneIndex).getDescription().get(3));
         btnQuestion2.setText(phase1Scenes.get(sceneIndex).getDescription().get(4));
         btnQuestion3.setText(phase1Scenes.get(sceneIndex).getDescription().get(5));
@@ -306,19 +354,26 @@ public class Menu extends javax.swing.JFrame {
             System.out.println(i.description);
         }
 
-        type = 1;
+        type = 1;}
     }//GEN-LAST:event_btnCasualActionPerformed
 
     private void btnInvasiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvasiveActionPerformed
+        if (phase == 3) {
+            endMid();
+            right = true;
+        } else {
         btnQuestion1.setText(phase1Scenes.get(sceneIndex).getDescription().get(0));
         btnQuestion2.setText(phase1Scenes.get(sceneIndex).getDescription().get(1));
         btnQuestion3.setText(phase1Scenes.get(sceneIndex).getDescription().get(2));
 
-        type = 0;
+        type = 0;}
     }//GEN-LAST:event_btnInvasiveActionPerformed
 
     private void btnCallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCallActionPerformed
-        btnQuestion1.setText("<html>test test test test test test test test");
+        if (phase == 3) {
+            endMid();
+        } else {
+        btnQuestion1.setText("<html>test test test test test test test test");}
     }//GEN-LAST:event_btnCallActionPerformed
 
     private void btnQuestion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuestion3ActionPerformed
@@ -338,8 +393,7 @@ public class Menu extends javax.swing.JFrame {
         } else {
             phase2Scenes.get(sceneIndex).playScene(display1, this, 2);
             if (sceneIndex == phase1Scenes.size() - 1) {
-
-                //TODO JASON
+                endScene();
             } else {
                 btnContinue.setVisible(true);
             }
@@ -366,8 +420,7 @@ public class Menu extends javax.swing.JFrame {
         } else {
             phase2Scenes.get(sceneIndex).playScene(display1, this, 0);
             if (sceneIndex == phase1Scenes.size() - 1) {
-
-                //TODO JASON
+                endScene();
             } else {
                 btnContinue.setVisible(true);
             }
@@ -391,8 +444,7 @@ public class Menu extends javax.swing.JFrame {
         } else {
             phase2Scenes.get(sceneIndex).playScene(display1, this, 1);
             if (sceneIndex == phase1Scenes.size() - 1) {
-
-                //TODO JASON
+                endScene();
             } else {
                 btnContinue.setVisible(true);
             }
@@ -414,6 +466,11 @@ public class Menu extends javax.swing.JFrame {
             
             setDialogue("");
             
+        } else if (phase == 4) {
+            endFinal();
+        } else if (phase == 5) {
+            btnContinue.setEnabled(false);
+            noInputScenes.get(5).playScene(display1, this);
         }else{
             if (numcontinue == 0) {
             noInputScenes.get(1).playScene(display1, this);
