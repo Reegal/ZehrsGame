@@ -31,7 +31,9 @@ public class Menu extends javax.swing.JFrame {
     int type = 0;
 
     int numcontinue = 0;
-    
+
+    boolean lastp2 = false;
+
     boolean right = false;
 
     public Menu() {
@@ -104,7 +106,7 @@ public class Menu extends javax.swing.JFrame {
                     dialogues.add(s.nextLine().split("#"));
 
                 }
-                
+
                 System.out.println(descriptions);
 
                 phase2Scenes.add(new Phase2Scene(n, descriptions, dialogues));
@@ -126,9 +128,9 @@ public class Menu extends javax.swing.JFrame {
         txtDialogue.setText(s);
 
     }
-    
+
     public void endScene() {
-        phase ++;
+        phase++;
         btnQuestion1.setEnabled(false);
         btnQuestion2.setEnabled(false);
         btnQuestion3.setEnabled(false);
@@ -142,11 +144,11 @@ public class Menu extends javax.swing.JFrame {
         btnInvasive.setText("Accuse Colin");
         noInputScenes.get(2).playScene(display1, this);
         btnContinue.setVisible(true);
-        btnContinue.setEnabled(true);
+        btnContinue.setEnabled(false);
     }
-    
+
     public void endMid() {
-        phase ++;
+        phase++;
         btnCasual.setEnabled(false);
         btnCall.setEnabled(false);
         btnUnrelated.setEnabled(false);
@@ -154,10 +156,10 @@ public class Menu extends javax.swing.JFrame {
         btnContinue.setEnabled(true);
         noInputScenes.get(3).playScene(display1, this);
     }
-    
+
     public void endFinal() {
         if (right) {
-            phase ++;
+            phase++;
             noInputScenes.get(4).playScene(display1, this);
             btnContinue.setEnabled(true);
         } else {
@@ -333,11 +335,11 @@ public class Menu extends javax.swing.JFrame {
         if (phase == 3) {
             endMid();
         } else {
-        btnQuestion1.setText(phase1Scenes.get(sceneIndex).getDescription().get(6));
-        btnQuestion2.setText(phase1Scenes.get(sceneIndex).getDescription().get(7));
-        btnQuestion3.setText(phase1Scenes.get(sceneIndex).getDescription().get(8));
+            btnQuestion1.setText(phase1Scenes.get(sceneIndex).getDescription().get(6));
+            btnQuestion2.setText(phase1Scenes.get(sceneIndex).getDescription().get(7));
+            btnQuestion3.setText(phase1Scenes.get(sceneIndex).getDescription().get(8));
 
-        type = 2;
+            type = 2;
         }
     }//GEN-LAST:event_btnUnrelatedActionPerformed
 
@@ -345,16 +347,17 @@ public class Menu extends javax.swing.JFrame {
         if (phase == 3) {
             endMid();
         } else {
-        btnQuestion1.setText(phase1Scenes.get(sceneIndex).getDescription().get(3));
-        btnQuestion2.setText(phase1Scenes.get(sceneIndex).getDescription().get(4));
-        btnQuestion3.setText(phase1Scenes.get(sceneIndex).getDescription().get(5));
-        System.out.println(sceneIndex);
+            btnQuestion1.setText(phase1Scenes.get(sceneIndex).getDescription().get(3));
+            btnQuestion2.setText(phase1Scenes.get(sceneIndex).getDescription().get(4));
+            btnQuestion3.setText(phase1Scenes.get(sceneIndex).getDescription().get(5));
+            System.out.println(sceneIndex);
 
-        for (Phase2Scene i : phase2Scenes) {
-            System.out.println(i.description);
+            for (Phase2Scene i : phase2Scenes) {
+                System.out.println(i.description);
+            }
+
+            type = 1;
         }
-
-        type = 1;}
     }//GEN-LAST:event_btnCasualActionPerformed
 
     private void btnInvasiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvasiveActionPerformed
@@ -362,18 +365,20 @@ public class Menu extends javax.swing.JFrame {
             endMid();
             right = true;
         } else {
-        btnQuestion1.setText(phase1Scenes.get(sceneIndex).getDescription().get(0));
-        btnQuestion2.setText(phase1Scenes.get(sceneIndex).getDescription().get(1));
-        btnQuestion3.setText(phase1Scenes.get(sceneIndex).getDescription().get(2));
+            btnQuestion1.setText(phase1Scenes.get(sceneIndex).getDescription().get(0));
+            btnQuestion2.setText(phase1Scenes.get(sceneIndex).getDescription().get(1));
+            btnQuestion3.setText(phase1Scenes.get(sceneIndex).getDescription().get(2));
 
-        type = 0;}
+            type = 0;
+        }
     }//GEN-LAST:event_btnInvasiveActionPerformed
 
     private void btnCallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCallActionPerformed
         if (phase == 3) {
             endMid();
         } else {
-        btnQuestion1.setText("<html>test test test test test test test test");}
+            btnQuestion1.setText("<html>test test test test test test test test");
+        }
     }//GEN-LAST:event_btnCallActionPerformed
 
     private void btnQuestion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuestion3ActionPerformed
@@ -393,12 +398,11 @@ public class Menu extends javax.swing.JFrame {
         } else {
             phase2Scenes.get(sceneIndex).playScene(display1, this, 2);
             if (sceneIndex == phase1Scenes.size() - 1) {
-                endScene();
-            } else {
-                btnContinue.setVisible(true);
+                lastp2 = true;
             }
+            btnContinue.setVisible(true);
         }
-        
+
         System.out.println("Scene Index: " + sceneIndex);
         System.out.println("Phase: " + phase);
 
@@ -420,10 +424,9 @@ public class Menu extends javax.swing.JFrame {
         } else {
             phase2Scenes.get(sceneIndex).playScene(display1, this, 0);
             if (sceneIndex == phase1Scenes.size() - 1) {
-                endScene();
-            } else {
-                btnContinue.setVisible(true);
+                lastp2 = true;
             }
+            btnContinue.setVisible(true);
         }
 
     }//GEN-LAST:event_btnQuestion1ActionPerformed
@@ -444,62 +447,65 @@ public class Menu extends javax.swing.JFrame {
         } else {
             phase2Scenes.get(sceneIndex).playScene(display1, this, 1);
             if (sceneIndex == phase1Scenes.size() - 1) {
-                endScene();
-            } else {
-                btnContinue.setVisible(true);
+                lastp2 = true;
             }
+            btnContinue.setVisible(true);
         }
 
     }//GEN-LAST:event_btnQuestion2ActionPerformed
 
     private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed
-        if (phase == 2){
-            sceneIndex++;
+        if (phase == 2) {
+            if (!lastp2) {
+                sceneIndex++;
 
-            display1.setCharacter(phase2Scenes.get(sceneIndex).getCharacter());
+                display1.setCharacter(phase2Scenes.get(sceneIndex).getCharacter());
 
-            display1.repaint();
+                display1.repaint();
 
-            updateQuestions();
-            
-            btnContinue.setVisible(false);
-            
-            setDialogue("");
-            
+                updateQuestions();
+
+                btnContinue.setVisible(false);
+
+                setDialogue("");
+            } else {
+                endScene();
+            }
+
         } else if (phase == 4) {
             endFinal();
         } else if (phase == 5) {
             btnContinue.setEnabled(false);
             noInputScenes.get(5).playScene(display1, this);
-        }else{
-            if (numcontinue == 0) {
-            noInputScenes.get(1).playScene(display1, this);
-
-            numcontinue++;
-
-            type = 0;
         } else {
-            phase += 1;
+            if (numcontinue == 0) {
+                noInputScenes.get(1).playScene(display1, this);
 
-            btnQuestion1.setEnabled(true);
-            btnQuestion2.setEnabled(true);
-            btnQuestion3.setEnabled(true);
-            btnCasual.setEnabled(true);
-            btnUnrelated.setEnabled(true);
-            btnInvasive.setEnabled(true);
+                numcontinue++;
 
-            btnContinue.setVisible(false);
+                type = 0;
+            } else {
+                phase += 1;
 
-            display1.setCharacter(phase1Scenes.get(sceneIndex).getCharacter());
+                btnQuestion1.setEnabled(true);
+                btnQuestion2.setEnabled(true);
+                btnQuestion3.setEnabled(true);
+                btnCasual.setEnabled(true);
+                btnUnrelated.setEnabled(true);
+                btnInvasive.setEnabled(true);
 
-            display1.repaint();
+                btnContinue.setVisible(false);
 
-            updateQuestions();
+                display1.setCharacter(phase1Scenes.get(sceneIndex).getCharacter());
 
-            setDialogue("");
+                display1.repaint();
+
+                updateQuestions();
+
+                setDialogue("");
+            }
         }
-        }
-        
+
 
     }//GEN-LAST:event_btnContinueActionPerformed
 
@@ -513,7 +519,7 @@ public class Menu extends javax.swing.JFrame {
                 sceneIndex++;
 
                 questionsAsked = 0;
-                
+
                 irritation = 0;
 
                 display1.setCharacter(phase1Scenes.get(sceneIndex).getCharacter());
@@ -522,12 +528,12 @@ public class Menu extends javax.swing.JFrame {
 
                 updateQuestions();
             }
-            if (phase == 1){
-                setDialogue(txtDialogue.getText() + "\n" + "You went to go talk to "+  phase1Scenes.get(sceneIndex).getCharacter() + " instead.");
-            }else{
-                setDialogue(txtDialogue.getText() + "\n" + "You went to go talk to "+  phase2Scenes.get(sceneIndex).getCharacter() + " instead.");
+            if (phase == 1) {
+                setDialogue(txtDialogue.getText() + "\n" + "You went to go talk to " + phase1Scenes.get(sceneIndex).getCharacter() + " instead.");
+            } else {
+                setDialogue(txtDialogue.getText() + "\n" + "You went to go talk to " + phase2Scenes.get(sceneIndex).getCharacter() + " instead.");
             }
-            
+
         } else if (irritation > 5) {
             setDialogue(txtDialogue.getText() + "\n" + phase1Scenes.get(sceneIndex).getCharacter() + " seems very irritated.");
 
@@ -564,11 +570,11 @@ public class Menu extends javax.swing.JFrame {
             updateQuestions();
 
             questionsAsked = 0;
-            
-            if (phase == 1){
-                setDialogue(txtDialogue.getText() + "\n" + "You went to go talk to "+  phase1Scenes.get(sceneIndex).getCharacter() + " instead.");
-            }else{
-                setDialogue(txtDialogue.getText() + "\n" + "You went to go talk to "+  phase2Scenes.get(sceneIndex).getCharacter() + " instead.");
+
+            if (phase == 1) {
+                setDialogue(txtDialogue.getText() + "\n" + "You went to go talk to " + phase1Scenes.get(sceneIndex).getCharacter() + " instead.");
+            } else {
+                setDialogue(txtDialogue.getText() + "\n" + "You went to go talk to " + phase2Scenes.get(sceneIndex).getCharacter() + " instead.");
             }
         }
     }
@@ -580,7 +586,7 @@ public class Menu extends javax.swing.JFrame {
             btnQuestion3.setText(phase1Scenes.get(sceneIndex).getDescription().get(2));
 
             type = 0;
-        }else{
+        } else {
             btnQuestion1.setText(phase2Scenes.get(sceneIndex).getDescription().get(0));
             btnQuestion2.setText(phase2Scenes.get(sceneIndex).getDescription().get(1));
             btnQuestion3.setText(phase2Scenes.get(sceneIndex).getDescription().get(2));
@@ -601,7 +607,7 @@ public class Menu extends javax.swing.JFrame {
         btnCasual.setEnabled(false);
         btnUnrelated.setEnabled(false);
         btnInvasive.setEnabled(false);
-        
+
         updateQuestions();
     }
 
