@@ -36,9 +36,9 @@ public class Menu extends javax.swing.JFrame {
         btnCall = new javax.swing.JButton();
         display1 = new zehrsgame.Display();
         lblStatus = new javax.swing.JLabel();
-        rbQuestion1 = new javax.swing.JRadioButton();
-        rbQuestion2 = new javax.swing.JRadioButton();
-        rbQuestion3 = new javax.swing.JRadioButton();
+        btnQuestion3 = new javax.swing.JButton();
+        btnQuestion1 = new javax.swing.JButton();
+        btnQuestion2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,14 +87,26 @@ public class Menu extends javax.swing.JFrame {
             .addGap(0, 306, Short.MAX_VALUE)
         );
 
-        btngpQuestion.add(rbQuestion1);
-        rbQuestion1.setText("Question 1");
+        btnQuestion3.setText("Question 3");
+        btnQuestion3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuestion3ActionPerformed(evt);
+            }
+        });
 
-        btngpQuestion.add(rbQuestion2);
-        rbQuestion2.setText("Question 2");
+        btnQuestion1.setText("Question 1");
+        btnQuestion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuestion1ActionPerformed(evt);
+            }
+        });
 
-        btngpQuestion.add(rbQuestion3);
-        rbQuestion3.setText("Question 3");
+        btnQuestion2.setText("Question 2");
+        btnQuestion2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuestion2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,9 +124,9 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(btnUnrelated, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCall, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
                     .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rbQuestion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rbQuestion2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rbQuestion3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnQuestion1, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                    .addComponent(btnQuestion2, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                    .addComponent(btnQuestion3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -133,12 +145,12 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(btnInvasive)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCall)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rbQuestion1)
-                        .addGap(4, 4, 4)
-                        .addComponent(rbQuestion2)
-                        .addGap(3, 3, 3)
-                        .addComponent(rbQuestion3)))
+                        .addGap(21, 21, 21)
+                        .addComponent(btnQuestion1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnQuestion2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnQuestion3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -162,8 +174,20 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInvasiveActionPerformed
 
     private void btnCallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCallActionPerformed
-        rbQuestion1.setText("<html>test test test test test test test test");
+        btnQuestion1.setText("<html>test test test test test test test test");
     }//GEN-LAST:event_btnCallActionPerformed
+
+    private void btnQuestion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuestion3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnQuestion3ActionPerformed
+
+    private void btnQuestion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuestion1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnQuestion1ActionPerformed
+
+    private void btnQuestion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuestion2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnQuestion2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,14 +229,14 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnCall;
     private javax.swing.JButton btnCasual;
     private javax.swing.JButton btnInvasive;
+    private javax.swing.JButton btnQuestion1;
+    private javax.swing.JButton btnQuestion2;
+    private javax.swing.JButton btnQuestion3;
     private javax.swing.JButton btnUnrelated;
     private javax.swing.ButtonGroup btngpQuestion;
     private zehrsgame.Display display1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblStatus;
-    private javax.swing.JRadioButton rbQuestion1;
-    private javax.swing.JRadioButton rbQuestion2;
-    private javax.swing.JRadioButton rbQuestion3;
     private javax.swing.JTextArea txtDialogue;
     // End of variables declaration//GEN-END:variables
 }
