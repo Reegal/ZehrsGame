@@ -27,6 +27,7 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btngpQuestion = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDialogue = new javax.swing.JTextArea();
         btnUnrelated = new javax.swing.JButton();
@@ -35,6 +36,9 @@ public class Menu extends javax.swing.JFrame {
         btnCall = new javax.swing.JButton();
         display1 = new zehrsgame.Display();
         lblStatus = new javax.swing.JLabel();
+        rbQuestion1 = new javax.swing.JRadioButton();
+        rbQuestion2 = new javax.swing.JRadioButton();
+        rbQuestion3 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,12 +47,32 @@ public class Menu extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtDialogue);
 
         btnUnrelated.setText("Ask Unrelated Question");
+        btnUnrelated.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUnrelatedActionPerformed(evt);
+            }
+        });
 
         btnCasual.setText("Ask Casual Question");
+        btnCasual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCasualActionPerformed(evt);
+            }
+        });
 
         btnInvasive.setText("Ask Invasive Question");
+        btnInvasive.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInvasiveActionPerformed(evt);
+            }
+        });
 
         btnCall.setText("Call Mr. Zehrs");
+        btnCall.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCallActionPerformed(evt);
+            }
+        });
 
         display1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -63,29 +87,43 @@ public class Menu extends javax.swing.JFrame {
             .addGap(0, 306, Short.MAX_VALUE)
         );
 
+        btngpQuestion.add(rbQuestion1);
+        rbQuestion1.setText("Question 1");
+
+        btngpQuestion.add(rbQuestion2);
+        rbQuestion2.setText("Question 2");
+
+        btngpQuestion.add(rbQuestion3);
+        rbQuestion3.setText("Question 3");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCasual, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                            .addComponent(btnInvasive, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                            .addComponent(btnUnrelated, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCall, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                            .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(display1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCasual, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                    .addComponent(btnInvasive, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                    .addComponent(btnUnrelated, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCall, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                    .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(rbQuestion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(rbQuestion2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(rbQuestion3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(btnUnrelated)
@@ -96,17 +134,36 @@ public class Menu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCall)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(rbQuestion1)
+                        .addGap(4, 4, 4)
+                        .addComponent(rbQuestion2)
+                        .addGap(3, 3, 3)
+                        .addComponent(rbQuestion3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnUnrelatedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnrelatedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUnrelatedActionPerformed
+
+    private void btnCasualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCasualActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCasualActionPerformed
+
+    private void btnInvasiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvasiveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnInvasiveActionPerformed
+
+    private void btnCallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCallActionPerformed
+        rbQuestion1.setText("<html>test test test test test test test test");
+    }//GEN-LAST:event_btnCallActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,9 +206,13 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnCasual;
     private javax.swing.JButton btnInvasive;
     private javax.swing.JButton btnUnrelated;
+    private javax.swing.ButtonGroup btngpQuestion;
     private zehrsgame.Display display1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblStatus;
+    private javax.swing.JRadioButton rbQuestion1;
+    private javax.swing.JRadioButton rbQuestion2;
+    private javax.swing.JRadioButton rbQuestion3;
     private javax.swing.JTextArea txtDialogue;
     // End of variables declaration//GEN-END:variables
 }
