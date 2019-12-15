@@ -505,7 +505,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void checkSceneChange() {
         if (irritation > 10) {
-            setDialogue(txtDialogue.getText() + "\n" + phase1Scenes.get(sceneIndex).getCharacter() + " walked away out off irritation");
+            setDialogue(txtDialogue.getText() + "\n" + phase1Scenes.get(sceneIndex).getCharacter() + " walked away out of irritation");
             if (sceneIndex == phase1Scenes.size() - 1) {
 
                 transitionPhase2();
