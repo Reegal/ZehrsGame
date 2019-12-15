@@ -5,10 +5,10 @@
  */
 package zehrsgame;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -41,9 +41,10 @@ public class Menu extends javax.swing.JFrame {
 
         try {
 
-            File f = new File("src\\zehrsgame\\NoInputScenes.txt");
+            InputStream in = Menu.class.getResourceAsStream("NoInputScenes.txt");
+            //File f = new File("src\\zehrsgame\\NoInputScenes.txt");
 
-            Scanner s = new Scanner(f);
+            Scanner s = new Scanner(in);
 
             String n;
 
@@ -59,9 +60,10 @@ public class Menu extends javax.swing.JFrame {
 
             }
 
-            f = new File("src\\zehrsgame\\Phase1Dialog.txt");
+            in = Menu.class.getResourceAsStream("Phase1Dialog.txt");
+            //f = new File("src\\zehrsgame\\Phase1Dialog.txt");
 
-            s = new Scanner(f);
+            s = new Scanner(in);
 
             ArrayList<String> descriptions = new ArrayList();
 
@@ -89,9 +91,10 @@ public class Menu extends javax.swing.JFrame {
                 irritations = new ArrayList();
             }
 
-            f = new File("src\\zehrsgame\\Phase2Dialog.txt");
+            in = Menu.class.getResourceAsStream("Phase2Dialog.txt");
+            //f = new File("src\\zehrsgame\\Phase2Dialog.txt");
 
-            s = new Scanner(f);
+            s = new Scanner(in);
 
             descriptions = new ArrayList();
 
@@ -115,7 +118,8 @@ public class Menu extends javax.swing.JFrame {
                 dialogues = new ArrayList();
             }
 
-        } catch (FileNotFoundException e) {
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, e);
         }
 
         btnCall.setVisible(false);
@@ -505,7 +509,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void checkSceneChange() {
         if (irritation > 10) {
-            setDialogue(txtDialogue.getText() + "\n" + phase1Scenes.get(sceneIndex).getCharacter() + " walked away out off irritation");
+            setDialogue(txtDialogue.getText() + "\n" + phase1Scenes.get(sceneIndex).getCharacter() + " walked away out of irritation");
             if (sceneIndex == phase1Scenes.size() - 1) {
 
                 transitionPhase2();
